@@ -1,0 +1,2 @@
+de_msgs/Mission mission
+bool isConfirmed

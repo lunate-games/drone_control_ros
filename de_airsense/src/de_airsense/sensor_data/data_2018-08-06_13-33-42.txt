@@ -1,0 +1,90 @@
+>>>
+CO2: -1.0000000000 ppm
+CH4: 0.0000000000 % LEL
+SO2: 0.0000000000 ppm
+CO: 0.0237328577 ppm
+NO: 0.0000000000 ppm
+Temperature: 28.0400009155 Celsius
+RH: 29.0722656250 %
+Pressure: 99055.4843750000 Pa
+Latitude: -1
+Longitude: -1
+GPS time: -1
+GPS date: -1
+Copter Latitude: 0.000001
+Copter Longitude: 0.000001
+Copter GPS Altitude: 15.42 m
+Copter Relative Altitude: 15.48 m
+System time: 2018/08/06 13:31:28
+>>>
+CO2: -1.0000000000 ppm
+CH4: 0.0000000000 % LEL
+SO2: 0.0077251253 ppm
+CO: 0.0000000000 ppm
+NO: 0.0000000000 ppm
+Temperature: 28.1200008392 Celsius
+RH: 28.9638671875 %
+Pressure: 99053.9609375000 Pa
+Latitude: -1
+Longitude: -1
+GPS time: -1
+GPS date: -1
+Copter Latitude: 0.000099
+Copter Longitude: 0.000099
+Copter GPS Altitude: 60.00 m
+Copter Relative Altitude: 60.00 m
+System time: 2018/08/06 13:31:55
+>>>
+CO2: -1.0000000000 ppm
+CH4: 0.0000000000 % LEL
+SO2: 0.0000000000 ppm
+CO: 0.0000000000 ppm
+NO: 0.0000000000 ppm
+Temperature: 28.1000003814 Celsius
+RH: 28.8808593750 %
+Pressure: 99051.4375000000 Pa
+Latitude: -1
+Longitude: -1
+GPS time: -1
+GPS date: -1
+Copter Latitude: 0.000198
+Copter Longitude: 0.000198
+Copter GPS Altitude: 30.31 m
+Copter Relative Altitude: 30.31 m
+System time: 2018/08/06 13:32:23
+>>>
+CO2: -1.0000000000 ppm
+CH4: 0.0000000000 % LEL
+SO2: 0.0000000000 ppm
+CO: 0.0059215736 ppm
+NO: 0.0000000000 ppm
+Temperature: 27.9899997711 Celsius
+RH: 29.2529296875 %
+Pressure: 99054.0000000000 Pa
+Latitude: -1
+Longitude: -1
+GPS time: -1
+GPS date: -1
+Copter Latitude: 0.000003
+Copter Longitude: 0.000003
+Copter GPS Altitude: 69.59 m
+Copter Relative Altitude: 69.59 m
+System time: 2018/08/06 13:32:50
+>>>
+CO2: -1.0000000000 ppm
+CH4: 0.0000000000 % LEL
+SO2: 0.0000000000 ppm
+CO: 0.0085818367 ppm
+NO: 0.0000000000 ppm
+Temperature: 28.2199993133 Celsius
+RH: 28.6748046875 %
+Pressure: 99054.9531250000 Pa
+Latitude: -1
+Longitude: -1
+GPS time: -1
+GPS date: -1
+Copter Latitude: 0.000002
+Copter Longitude: 0.000002
+Copter GPS Altitude: 19.77 m
+Copter Relative Altitude: 19.77 m
+System time: 2018/08/06 13:33:18

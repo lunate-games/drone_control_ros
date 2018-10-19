@@ -1,0 +1,73 @@
+J#
+>>>
+CO2: -1.0000000000 ppm
+CH4: -1.0000000000 % LEL
+SO2: -1.0000000000 ppm
+CO: -1.0000000000 ppm
+NO: -1.0000000000 ppm
+Temperature: 27.3600006103 Celsius
+RH: 55.5146484375 %
+Pressure: 99816.2187500000 Pa
+Latitude: -1
+Longitude: -1
+GPS time: -1
+GPS date: -1
+Copter Latitude: 0.000000
+Copter Longitude: 0.000000
+Copter GPS Altitude: 0.00 m
+Copter Relative Altitude: 0.00 m
+System time: 2018/07/21 16:01:19
+>>>
+CO2: -1.0000000000 ppm
+CH4: -1.0000000000 % LEL
+SO2: -1.0000000000 ppm
+CO: -1.0000000000 ppm
+NO: -1.0000000000 ppm
+Temperature: 27.2500000000 Celsius
+RH: 55.7841796875 %
+Pressure: 99815.2968750000 Pa
+Latitude: -1
+Longitude: -1
+GPS time: -1
+GPS date: -1
+Copter Latitude: 0.000000
+Copter Longitude: 0.000000
+Copter GPS Altitude: 0.00 m
+Copter Relative Altitude: 0.00 m
+System time: 2018/07/21 16:01:31
+>>>
+CO2: -1.0000000000 ppm
+CH4: -1.0000000000 % LEL
+SO2: -1.0000000000 ppm
+CO: -1.0000000000 ppm
+NO: -1.0000000000 ppm
+Temperature: 27.2099990844 Celsius
+RH: 56.0214843750 %
+Pressure: 99812.6718750000 Pa
+Latitude: -1
+Longitude: -1
+GPS time: -1
+GPS date: -1
+Copter Latitude: 0.000000
+Copter Longitude: 0.000000
+Copter GPS Altitude: 0.00 m
+Copter Relative Altitude: 0.00 m
+System time: 2018/07/21 16:01:44
+>>>
+CO2: -1.0000000000 ppm
+CH4: -1.0000000000 % LEL
+SO2: -1.0000000000 ppm
+CO: -1.0000000000 ppm
+NO: -1.0000000000 ppm
+Temperature: 27.1700000762 Celsius
+RH: 56.1699218750 %
+Pressure: 99809.0156250000 Pa
+Latitude: -1
+Longitude: -1
+GPS time: -1
+GPS date: -1
+Copter Latitude: 0.000000
+Copter Longitude: 0.000000
+Copter GPS Altitude: 0.00 m
+Copter Relative Altitude: 0.00 m
+System time: 2018/07/21 16:01:55

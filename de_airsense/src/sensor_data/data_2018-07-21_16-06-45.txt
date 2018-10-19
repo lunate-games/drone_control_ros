@@ -1,0 +1,18 @@
+>>>
+CO2: -1.0000000000 ppm
+CH4: -1.0000000000 % LEL
+SO2: -1.0000000000 ppm
+CO: -1.0000000000 ppm
+NO: -1.0000000000 ppm
+Temperature: 27.2500000000 Celsius
+RH: 55.8554687500 %
+Pressure: 99814.3515625000 Pa
+Latitude: -1
+Longitude: -1
+GPS time: -1
+GPS date: -1
+Copter Latitude: 0.000000
+Copter Longitude: 0.000000
+Copter GPS Altitude: 0.00 m
+Copter Relative Altitude: 0.00 m
+System time: 2018/07/21 16:06:42
