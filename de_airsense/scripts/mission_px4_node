@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from de_airsense.nodes import mission_px4_node
+
+if __name__ == '__main__':
+    mission_px4_node()

@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from de_airsense.nodes import mission_dji_node
+
+if __name__ == '__main__':
+    mission_dji_node()

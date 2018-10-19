@@ -15,7 +15,7 @@ class FlightMission:
         rospy.wait_for_service('dji_sdk/mission_waypoint_action')
         rospy.wait_for_service('dji_sdk/mission_waypoint_upload')
         rospy.loginfo('Services are ok')
-        
+
         def mission_start(mission_msg):
             try:
                 auth = rospy.ServiceProxy('dji_sdk/sdk_control_authority', SDKControlAuthority)
@@ -43,20 +43,20 @@ class FlightMission:
                 rospy.loginfo('Received mission from objective:')
                 rospy.loginfo(mission_msg)
                 for item in mission_msg.waypoints:
-                    cmd_parameter = [item.staytime * 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                    mission_task_msg.mission_waypoint.append(MissionWaypoint( 
-                                                                latitude = item.latitude,
-                                                                longitude = item.longitude,
-                                                                altitude = item.altitude,
-                                                                damping_distance = 2,
-                                                                target_yaw = 0,
-                                                                has_action = 1,
-                                                                target_gimbal_pitch = 0,
-                                                                turn_mode = 0,
-                                                                action_time_limit = 64000,
-                                                                waypoint_action = MissionWaypointAction(
-                                                                                    action_repeat = 10,
-                                                                                    command_parameter = cmd_parameter )))
+                    cmd_parameter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    mission_task_msg.mission_waypoint.append(MissionWaypoint(
+                        latitude = item.latitude,
+                        longitude = item.longitude,
+                        altitude = item.altitude,
+                        damping_distance = 2,
+                        target_yaw = 0,
+                        has_action = 1,
+                        target_gimbal_pitch = 0,
+                        turn_mode = 0,
+                        action_time_limit = 64000,
+                        waypoint_action = MissionWaypointAction(
+                            action_repeat = 10,
+                            command_parameter = cmd_parameter )))
 
                 rospy.logdebug(mission_task_msg)
                 rospy.loginfo('Service. Mission waypoint upload:')
@@ -79,8 +79,8 @@ class FlightMission:
                 rospy.logwarn(e)
                 return
 
-        rospy.Subscriber('objective/mission', Mission, mission_start)
-        rospy.loginfo('Waiting for objective at "objective/mission" topic ...')
+        rospy.Subscriber('de/drone/mission', Mission, mission_start)
+        rospy.loginfo('Waiting for objective at "de/drone/mission" topic ...')
 
     def spin(self):
         rospy.spin()
