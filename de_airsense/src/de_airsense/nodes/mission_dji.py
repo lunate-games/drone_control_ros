@@ -4,10 +4,14 @@ import rospy
 from dji_sdk.srv import SDKControlAuthority, MissionWpUpload, MissionWpAction
 from dji_sdk.msg import MissionWaypointAction, MissionWaypointTask, MissionWaypoint
 from de_msgs.msg import Mission
+from std_msgs.msg import Empty
 from sensor_msgs.msg import NavSatFix, Imu
 
+IN_AIR_STANDBY = 3
+ON_GROUND = 1
 
-def mission_start(mission_msg):
+
+def new_mission_cb(mission_msg):
     try:
         auth = rospy.ServiceProxy('dji_sdk/sdk_control_authority', SDKControlAuthority)
         rospy.loginfo('Service. Sdk control authority:')
@@ -75,6 +79,8 @@ class FlightMission:
     def __init__(self):
         rospy.init_node('de_airsense_mission')
 
+        self.status_in_air = False
+
         rospy.loginfo('Waiting for dji_sdk services...')
         rospy.wait_for_service('dji_sdk/sdk_control_authority')
         rospy.wait_for_service('dji_sdk/mission_waypoint_action')
@@ -83,22 +89,34 @@ class FlightMission:
 
         self.__gpsPublisher = rospy.Publisher('de/drone/gps_position', NavSatFix, queue_size=100)
         self.__imuPublisher = rospy.Publisher('de/drone/imu', Imu, queue_size=100)
+        self.__flightStarted = rospy.Publisher('de/drone/flight_started', Empty, queue_size=100)
+        self.__flightEnded = rospy.Publisher('de/drone/flight_ended', Empty, queue_size=100)
 
-        def gps_cb(data):
-            self.lat = data.latitude
-            self.lon = data.longitude
-            rospy.loginfo_throttle(1, 'position: %s, %s' % (self.lat, self.lon))
-            self.__gpsPublisher.publish(data)
+        rospy.Subscriber('dji_sdk/gps_position', NavSatFix, self.gps_cb)
+        rospy.Subscriber("/dji_sdk/imu", Imu, self.imu_cb)
+        rospy.Subscriber('dji_sdk/flight_status', UInt8, self.flight_status_cb)
 
-        rospy.Subscriber('dji_sdk/gps_position', NavSatFix, gps_cb)
-
-        def imu_cb(data):
-            self.__imuPublisher.publish(data)
-
-        rospy.Subscriber("/dji_sdk/imu", Imu, imu_cb)
-
-        rospy.Subscriber('de/drone/mission', Mission, mission_start)
+        rospy.Subscriber('de/drone/mission', Mission, new_mission_cb)
         rospy.loginfo('Waiting for objective at "de/drone/mission" topic ...')
+
+    def gps_cb(self, data):
+        self.lat = data.latitude
+        self.lon = data.longitude
+        rospy.loginfo_throttle(1, 'position: %s, %s' % (self.lat, self.lon))
+        self.__gpsPublisher.publish(data)
+
+    def imu_cb(self, data):
+        self.__imuPublisher.publish(data)
+
+    def flight_status_cb(self, data_msg):
+        if data_msg.data == IN_AIR_STANDBY and self.status_in_air is False:
+            self.status_in_air = True
+            self.__flightStarted.publish()
+            rospy.loginfo('mission started')
+        elif data_msg.data == ON_GROUND and self.status_in_air is True:
+            self.status_in_air = False
+            self.__flightEnded.publish()
+            rospy.loginfo('mission ended')
 
     def spin(self):
         rospy.spin()
