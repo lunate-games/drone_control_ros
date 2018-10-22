@@ -13,7 +13,7 @@ ON_GROUND = 1
 
 def new_mission_cb(mission_msg):
     try:
-        auth = rospy.ServiceProxy('dji_sdk/sdk_control_authority', SDKControlAuthority)
+        auth = rospy.ServiceProxy('/dji_sdk/sdk_control_authority', SDKControlAuthority)
         rospy.loginfo('Service. Sdk control authority:')
         resp = auth(1)
         rospy.loginfo(resp.result)
@@ -24,7 +24,7 @@ def new_mission_cb(mission_msg):
         return
 
     try:
-        mission = rospy.ServiceProxy('dji_sdk/mission_waypoint_upload', MissionWpUpload)
+        mission = rospy.ServiceProxy('/dji_sdk/mission_waypoint_upload', MissionWpUpload)
         mission_task_msg = MissionWaypointTask()
         mission_task_msg.velocity_range     = 10;
         mission_task_msg.idle_velocity      = 10;
@@ -64,7 +64,7 @@ def new_mission_cb(mission_msg):
         return
 
     try:
-        start = rospy.ServiceProxy('dji_sdk/mission_waypoint_action', MissionWpAction)
+        start = rospy.ServiceProxy('/dji_sdk/mission_waypoint_action', MissionWpAction)
         resp = start(0)
         rospy.loginfo('Service. Mission waypoint action:')
         rospy.loginfo(resp.result)
@@ -82,9 +82,9 @@ class FlightMission:
         self.status_in_air = False
 
         rospy.loginfo('Waiting for dji_sdk services...')
-        rospy.wait_for_service('dji_sdk/sdk_control_authority')
-        rospy.wait_for_service('dji_sdk/mission_waypoint_action')
-        rospy.wait_for_service('dji_sdk/mission_waypoint_upload')
+        rospy.wait_for_service('/dji_sdk/sdk_control_authority')
+        rospy.wait_for_service('/dji_sdk/mission_waypoint_action')
+        rospy.wait_for_service('/dji_sdk/mission_waypoint_upload')
         rospy.loginfo('Services are ok')
 
         self.__gpsPublisher = rospy.Publisher('de/drone/gps_position', NavSatFix, queue_size=100)
@@ -92,9 +92,9 @@ class FlightMission:
         self.__flightStarted = rospy.Publisher('de/drone/flight_started', Empty, queue_size=100)
         self.__flightEnded = rospy.Publisher('de/drone/flight_ended', Empty, queue_size=100)
 
-        rospy.Subscriber('dji_sdk/gps_position', NavSatFix, self.gps_cb)
-        rospy.Subscriber("/dji_sdk/imu", Imu, self.imu_cb)
-        rospy.Subscriber('dji_sdk/flight_status', UInt8, self.flight_status_cb)
+        rospy.Subscriber('/dji_sdk/gps_position', NavSatFix, self.gps_cb)
+        rospy.Subscriber('/dji_sdk/imu', Imu, self.imu_cb)
+        rospy.Subscriber('/dji_sdk/flight_status', UInt8, self.flight_status_cb)
 
         rospy.Subscriber('de/drone/mission', Mission, new_mission_cb)
         rospy.loginfo('Waiting for objective at "de/drone/mission" topic ...')
