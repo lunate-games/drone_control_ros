@@ -14,9 +14,9 @@ catkin_package()
 
 catkin_install_python(
     PROGRAMS
-        scripts/agent_node
-        scripts/mission_node
-        scripts/waspmote_ipfs_node
+        scripts/mission_dji_node
+        scripts/mission_px4_node
+        scripts/waspmote_node
     DESTINATION
         ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
@@ -24,6 +24,8 @@ catkin_install_python(
 install(
     FILES
         launch/mission.launch
+        launch/dji.launch
+        launch/px4.launch
     DESTINATION
         ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
 )
