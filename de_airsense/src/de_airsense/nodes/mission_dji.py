@@ -4,7 +4,7 @@ import rospy
 from dji_sdk.srv import SDKControlAuthority, MissionWpUpload, MissionWpAction
 from dji_sdk.msg import MissionWaypointAction, MissionWaypointTask, MissionWaypoint
 from de_msgs.msg import Mission
-from std_msgs.msg import Empty
+from std_msgs.msg import Empty, UInt8
 from sensor_msgs.msg import NavSatFix, Imu
 
 IN_AIR_STANDBY = 3
@@ -102,7 +102,7 @@ class FlightMission:
     def gps_cb(self, data):
         self.lat = data.latitude
         self.lon = data.longitude
-        rospy.loginfo_throttle(1, 'position: %s, %s' % (self.lat, self.lon))
+        # rospy.loginfo_throttle(1, 'position: %s, %s' % (self.lat, self.lon))
         self.__gpsPublisher.publish(data)
 
     def imu_cb(self, data):
